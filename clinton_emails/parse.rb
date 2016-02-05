@@ -39,6 +39,12 @@ while email = emails.shift do
     parsed_message << line
   end
 
-  puts parsed_message.join("\n")
   parsed_messages << parsed_message.join("\n")
 end
+
+f = File.open("parsed_clinton_emails.txt", "w")
+for msg in parsed_messages
+  f.write(msg)
+end
+
+f.close
